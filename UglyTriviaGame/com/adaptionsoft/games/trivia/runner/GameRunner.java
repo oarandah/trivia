@@ -21,13 +21,8 @@ public class GameRunner {
 		for (int i = 0; i < players_forced.size(); i++) {
 			aGame.add(players_forced.get(i).toString());
 		}
-		
-//		aGame.add("Chet");
-//		aGame.add("Pat");
-//		aGame.add("Sue");
-		
 		Random rand = new Random(seed);
-	
+
 		do {
 			
 			aGame.roll(rand.nextInt(5) + 1);
@@ -37,9 +32,6 @@ public class GameRunner {
 			} else {
 				notAWinner = aGame.wasCorrectlyAnswered();
 			}
-			
-			
-			
 		} while (notAWinner);
 		
 		

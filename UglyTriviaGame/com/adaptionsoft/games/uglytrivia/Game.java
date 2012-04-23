@@ -8,7 +8,6 @@ public class Game {
     int[] places = new int[6];
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
-    //int[] highscores= new int[6];
 
     LinkedList popQuestions = new LinkedList();
     LinkedList scienceQuestions = new LinkedList();
@@ -58,11 +57,6 @@ public class Game {
 		return true;
 	}
 	
-//	public boolean remove(String playerName) {
-//	  players.remove(howManyPlayers());
-//	  return true;
-//	}
-	
 	public int howManyPlayers() {
 		return players.size();
 	}
@@ -111,9 +105,6 @@ public class Game {
     System.out.println("Hello World!"); // Display the string.
   }
 
-	// randomly return a category
-  	//TODO 1
-	//private String currentCategory() {
   public String currentCategory() {
 		if (places[currentPlayer] == 0) return "Pop";
 		if (places[currentPlayer] == 4) return "Pop";
@@ -147,9 +138,6 @@ public class Game {
 				if (currentPlayer == players.size()) currentPlayer = 0;
 				return true;
 			}
-			
-			
-			
 		} else {
 		
 			System.out.println("Answer was corrent!!!!");
@@ -229,14 +217,6 @@ public class Game {
 	public void setInPenaltyBox(boolean[] inPenaltyBox) {
 		this.inPenaltyBox = inPenaltyBox;
 	}
-
-//	public int[] getHighscores() {
-//		return highscores;
-//	}
-
-//	public void setHighscores(int[] highscores) {
-//		this.highscores = highscores;
-//	}
 
 	public LinkedList getPopQuestions() {
 		return popQuestions;
