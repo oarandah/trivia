@@ -93,9 +93,9 @@ public class GameRunnerTest {
 		Assert.assertTrue(salidaResultados.contains("Answer was corrent!!!!"));
 		Assert.assertTrue(salidaResultados.contains("Pepe now has 6 Gold Coins."));
 	}
-	
+		
 	@Test
-	public void launchGameWithRollAlwaysTwoAndRandomAnswerOneWithCustomQuestions() {
+	public void GameRunner_Pepe_score_6_Test_con_preguntas_custom() {
 		gr.gameRunnerUsers_Roll(aGame, players_forced, seed);
 		
 		ArrayList players = aGame.getPlayers();

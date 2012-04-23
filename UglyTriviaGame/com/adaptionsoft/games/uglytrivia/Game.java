@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Game {
+	private Simula_basededatos pregunta_bbdd = new Simula_basededatos();
     ArrayList players = new ArrayList();
     int[] places = new int[6];
     int[] purses  = new int[6];
@@ -16,7 +17,6 @@ public class Game {
     
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
-	private Simula_basededatos pregunta_bbdd = new Simula_basededatos();
 
     public  Game(){
     	for (int i = 0; i < 50; i++) {
