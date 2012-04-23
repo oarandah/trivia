@@ -8,7 +8,7 @@ public class Game {
     int[] places = new int[6];
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
-    int[] highscores= new int[6];
+    //int[] highscores= new int[6];
 
     LinkedList popQuestions = new LinkedList();
     LinkedList scienceQuestions = new LinkedList();
@@ -17,7 +17,8 @@ public class Game {
     
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
-    
+	private Simula_basededatos pregunta_bbdd = new Simula_basededatos();
+
     public  Game(){
     	for (int i = 0; i < 50; i++) {
 			popQuestions.addLast("Pop Question " + i);
@@ -26,6 +27,10 @@ public class Game {
 			rockQuestions.addLast(createRockQuestion(i));
     	}
     }
+
+	public void setSimula_basededatos(Simula_basededatos simula_preguntaBBDD) {
+		this.pregunta_bbdd = simula_preguntaBBDD;
+	}
 
 	public String createRockQuestion(int index){
 		return "Rock Question " + index;
@@ -53,10 +58,10 @@ public class Game {
 		return true;
 	}
 	
-	public boolean remove(String playerName) {
-	  players.remove(howManyPlayers());
-	  return true;
-	}
+//	public boolean remove(String playerName) {
+//	  players.remove(howManyPlayers());
+//	  return true;
+//	}
 	
 	public int howManyPlayers() {
 		return players.size();
@@ -99,14 +104,7 @@ public class Game {
 	}
 
 	private void askQuestion() {
-		if (currentCategory() == "Pop")
-			System.out.println(popQuestions.removeFirst());
-		if (currentCategory() == "Science")
-			System.out.println(scienceQuestions.removeFirst());
-		if (currentCategory() == "Sports")
-			System.out.println(sportsQuestions.removeFirst());
-		if (currentCategory() == "Rock")
-			System.out.println(rockQuestions.removeFirst());		
+		System.out.println(pregunta_bbdd.obtenPregunta(currentCategory()));
 	}
 	
   public static void main(String[] args) {
@@ -114,7 +112,9 @@ public class Game {
   }
 
 	// randomly return a category
-	private String currentCategory() {
+  	//TODO 1
+	//private String currentCategory() {
+  public String currentCategory() {
 		if (places[currentPlayer] == 0) return "Pop";
 		if (places[currentPlayer] == 4) return "Pop";
 		if (places[currentPlayer] == 8) return "Pop";
@@ -196,5 +196,93 @@ public class Game {
 	 */
 	private boolean didPlayerWin() {
 		return !(purses[currentPlayer] == 6);
+	}
+
+	public ArrayList getPlayers() {
+		return players;
+	}
+
+	public void setPlayers(ArrayList players) {
+		this.players = players;
+	}
+
+	public int[] getPlaces() {
+		return places;
+	}
+
+	public void setPlaces(int[] places) {
+		this.places = places;
+	}
+
+	public int[] getPurses() {
+		return purses;
+	}
+
+	public void setPurses(int[] purses) {
+		this.purses = purses;
+	}
+
+	public boolean[] getInPenaltyBox() {
+		return inPenaltyBox;
+	}
+
+	public void setInPenaltyBox(boolean[] inPenaltyBox) {
+		this.inPenaltyBox = inPenaltyBox;
+	}
+
+//	public int[] getHighscores() {
+//		return highscores;
+//	}
+
+//	public void setHighscores(int[] highscores) {
+//		this.highscores = highscores;
+//	}
+
+	public LinkedList getPopQuestions() {
+		return popQuestions;
+	}
+
+	public void setPopQuestions(LinkedList popQuestions) {
+		this.popQuestions = popQuestions;
+	}
+
+	public LinkedList getScienceQuestions() {
+		return scienceQuestions;
+	}
+
+	public void setScienceQuestions(LinkedList scienceQuestions) {
+		this.scienceQuestions = scienceQuestions;
+	}
+
+	public LinkedList getSportsQuestions() {
+		return sportsQuestions;
+	}
+
+	public void setSportsQuestions(LinkedList sportsQuestions) {
+		this.sportsQuestions = sportsQuestions;
+	}
+
+	public LinkedList getRockQuestions() {
+		return rockQuestions;
+	}
+
+	public void setRockQuestions(LinkedList rockQuestions) {
+		this.rockQuestions = rockQuestions;
+	}
+
+	public int getCurrentPlayer() {
+		return currentPlayer;
+	}
+
+	public void setCurrentPlayer(int currentPlayer) {
+		this.currentPlayer = currentPlayer;
+	}
+
+	public boolean isGettingOutOfPenaltyBox() {
+		return isGettingOutOfPenaltyBox;
+	}
+
+	public void setGettingOutOfPenaltyBox(boolean isGettingOutOfPenaltyBox) {
+		this.isGettingOutOfPenaltyBox = isGettingOutOfPenaltyBox;
 	}
 }
